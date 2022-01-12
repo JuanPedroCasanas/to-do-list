@@ -2,11 +2,14 @@ import { taskManager } from './taskManager';
 import { createButton } from './createButton';
 
 const taskMethods = {
-  get sayName() {
-    console.log(this.name);
+  get open() {
+    taskManager.openTask(this);
   },
   get delete() {
     taskManager.deleteTask(this);
+  },
+  get edit() {
+    taskManager.editTask(this);
   }
 }
 

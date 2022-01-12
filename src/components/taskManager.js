@@ -1,4 +1,5 @@
 import { renderTask } from './renderTask';
+import { renderPopup } from './renderPopup';
 
 export const taskManager = {
   taskArray: [],
@@ -14,5 +15,13 @@ export const taskManager = {
       taskManager.taskArray.splice(toBeDeleted, 1);
       domElem.parentNode.removeChild(domElem);
     }
+  },
+
+  openTask: (task) => {
+    renderPopup(task);
+  },
+
+  editTask: (task) => {
+   console.log('gay')
   }
 };

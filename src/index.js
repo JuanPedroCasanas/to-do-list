@@ -7,4 +7,30 @@ const test2 = createTask('test2', 'i am asdasct', 'date', 'due');
 
 taskManager.storeTask(test2);
 taskManager.storeTask(test);
+taskManager.storeTask(test2);
+taskManager.storeTask(test);
+
+taskManager.storeTask(test2);
+taskManager.storeTask(test);
+
+taskManager.storeTask(test2);
+taskManager.storeTask(test);
+
+taskManager.storeTask(test2);
+taskManager.storeTask(test);
+
+taskManager.storeTask(test2);
+taskManager.storeTask(test);
+
+
+taskManager.storeTask(test2);
+taskManager.storeTask(test);
+
+taskManager.storeTask(test2);
+taskManager.storeTask(test);
+
+taskManager.storeTask(test2);
+taskManager.storeTask(test);
+
+
 

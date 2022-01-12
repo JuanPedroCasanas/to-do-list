@@ -41,3 +41,34 @@ body {
 #deleteBtn{
   background-color: red;
 }
+
+.popupBg{
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.363);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup{
+  display: inherit;
+  background-color: black;
+  color: white;
+  height: 40em;
+  width: 40em;
+  justify-content: stretch;
+  justify-items: center;
+  align-items: center;
+  border: white solid 2px;
+  padding: 1em;
+}
+
+.taskPopup{
+  display: flex;
+  flex-direction: column;
+  height: 40em;
+  width: 100%;
+  border: none;
+}
