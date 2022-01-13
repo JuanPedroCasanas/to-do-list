@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  }
+}
 
 html {
   width: 100%;
@@ -27,22 +27,59 @@ body {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 15em;
-  grid-template-rows: repeat(8, 12.5%);
+  grid-template-rows: repeat(5, 19.3%);
   grid-gap: 0.4em;
   background-color: wheat;
 }
 
 .taskItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2em repeat(3, 1fr);
+  grid-row-gap: 0.1em;
+  grid-template-areas:
+    "btn1 btn2"
+    "name name"
+    "desc desc"
+    "date date"
+    "due due";
   border: solid 2px white;
-  padding: 0.5em 0em 0.5em 0.2em;
+  padding: 0.3em 0.5em 0em 0.5em;
   text-justify: distribute;
 }
 
-#deleteBtn{
-  background-color: red;
+#amplifyBtn {
+  grid-area: btn1;
+  width: 2em;
+  height: 2em;
+  justify-self: left;
 }
 
-.popupBg{
+#deleteBtn{
+  grid-area: btn2;
+  background-color: red;
+  width: 2em;
+  height: 2em;
+  justify-self: right;
+}
+
+.tName{
+  grid-area: name;
+}
+
+.tDesc{
+  grid-area: desc;
+}
+
+.tDate{
+  grid-area: date;
+}
+
+.tDue{
+  grid-area: due;
+}
+
+.popupBg {
   display: flex;
   position: absolute;
   width: 100%;
@@ -52,7 +89,7 @@ body {
   align-items: center;
 }
 
-.popup{
+.popup {
   display: inherit;
   background-color: black;
   color: white;
@@ -65,7 +102,7 @@ body {
   padding: 1em;
 }
 
-.taskPopup{
+.taskPopup {
   display: flex;
   flex-direction: column;
   height: 40em;

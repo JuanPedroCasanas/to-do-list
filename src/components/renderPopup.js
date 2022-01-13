@@ -5,7 +5,7 @@ import { closePopup } from './closePopup';
 export function renderPopup(task) {
   const popup = document.createElement('div');
   const popupBg = document.createElement('div');
-  const domBody = document.getElementById('body')
+  const domBody = document.getElementById('body');
   const closePopupBtn = createButton('X', 'closePopupBtn', () => { closePopup() });
 
   popup.classList.add('popup');
