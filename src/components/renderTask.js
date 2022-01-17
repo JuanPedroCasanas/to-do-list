@@ -9,6 +9,7 @@ export function renderTask(task, parentElem = content, popup = false) {
   const description = document.createElement('div');
   const date = document.createElement('div');
   const due = document.createElement('div');
+  const buttons = document.createElement('div');
   const deleteBtn = (() => {
     if (!popup) {
       return createButton('X', 'deleteBtn', () => { task.delete });
@@ -20,7 +21,7 @@ export function renderTask(task, parentElem = content, popup = false) {
     if (!popup) {
       return createButton('O', 'amplifyBtn', () => { task.open });
     } else {
-      return createButton('E', 'editBtn', () => { task.edit });
+      return createButton('Edit task', 'editBtn', () => { task.edit });
     }
   })();
 
@@ -28,12 +29,18 @@ export function renderTask(task, parentElem = content, popup = false) {
   description.textContent = hideOverflow(`Description: ${task.description}`, 17);
   date.textContent = `Date: ${task.date}`;
   due.textContent = `Due: ${task.due}`;
-  hideOverflow(name.textContent);
 
   if (popup) {
+    name.textContent = `Name: ${task.name}`;
+    description.textContent = `Description: ${task.description}`;
+    date.textContent = `Date: ${task.date}`;
+    due.textContent = `Due: ${task.due}`;
     taskItem.classList.add('taskPopup');
+    deleteBtn.id = 'deleteBtnPopup';
     deleteBtn.addEventListener('click', () => { closePopup() })
+    buttons.classList.add('tButtonsPopup');
   }
+  buttons.classList.add('tButtons');
   taskItem.classList.add('taskItem');
   taskItem.id = task.name;
   name.classList.add('tName');
@@ -41,11 +48,22 @@ export function renderTask(task, parentElem = content, popup = false) {
   date.classList.add('tDate');
   due.classList.add('tDue');
 
-  taskItem.appendChild(extraBtn);
-  taskItem.appendChild(deleteBtn);
-  taskItem.appendChild(name);
-  taskItem.appendChild(description);
-  taskItem.appendChild(date);
-  taskItem.appendChild(due);
+  buttons.appendChild(extraBtn);
+  buttons.appendChild(deleteBtn);
+
+  if (popup) {
+    taskItem.appendChild(name);
+    taskItem.appendChild(description);
+    taskItem.appendChild(date);
+    taskItem.appendChild(due);
+    taskItem.appendChild(buttons);
+  } else {
+    taskItem.appendChild(buttons);
+    taskItem.appendChild(name);
+    taskItem.appendChild(description);
+    taskItem.appendChild(date);
+    taskItem.appendChild(due);
+  }
+
   parentElem.appendChild(taskItem);
 }

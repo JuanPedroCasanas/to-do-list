@@ -15,68 +15,85 @@ body {
   width: 100%;
   height: 100%;
   padding: 0em;
+  overflow-y: hidden;
+  background-color: wheat;
 }
 
 #navbar {
-  background-color: rgba(255, 0, 0, 0.548);
+  color: rgba(0, 0, 0, 0);
+  background-color: rgb(68, 39, 75);
+  border-radius: 0% 10% 10% 0%;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  justify-content: space-around;
+  width: 1%;
+}
+
+#navbar:hover {
+  background-color: rgb(68, 39, 75);
+  color: black;
+  border-radius: 0% 10% 10% 0%;
+  transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  justify-content: space-around;
+  width: 50%;
+}
+
+button {
+  color: inherit;
 }
 
 #content {
   padding: 1em;
-  overflow: scroll;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 15em;
   grid-template-rows: repeat(5, 19.3%);
-  grid-gap: 0.4em;
+  grid-gap: 0.5em;
   background-color: wheat;
+  background-size: cover
 }
 
 .taskItem {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: 2em repeat(3, 1fr);
   grid-row-gap: 0.1em;
-  grid-template-areas:
-    "btn1 btn2"
-    "name name"
-    "desc desc"
-    "date date"
-    "due due";
-  border: solid 2px white;
-  padding: 0.3em 0.5em 0em 0.5em;
   text-justify: distribute;
+  background-color: whitesmoke;
+  border-radius: 5%;
+  box-shadow: black 1px 1px 5px;
+}
+
+.tButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: blueviolet;
+  padding: 0em 1em 0em 1em;
+  align-content: center;
+  box-shadow: inset 0px 10px 10px rgba(55, 18, 90, 0.507),
+    inset 0px -5px 10px rgba(255, 255, 255, 0.1);
 }
 
 #amplifyBtn {
-  grid-area: btn1;
   width: 2em;
   height: 2em;
   justify-self: left;
 }
 
-#deleteBtn{
-  grid-area: btn2;
+#deleteBtn {
   background-color: red;
   width: 2em;
   height: 2em;
   justify-self: right;
 }
 
-.tName{
-  grid-area: name;
-}
-
-.tDesc{
-  grid-area: desc;
-}
-
-.tDate{
-  grid-area: date;
-}
-
-.tDue{
-  grid-area: due;
+.tDate, .tDue, .tName, .tDesc {
+  margin: 0.2em;
 }
 
 .popupBg {
@@ -91,21 +108,41 @@ body {
 
 .popup {
   display: inherit;
-  background-color: black;
-  color: white;
+  background-color: whitesmoke;
   height: 40em;
   width: 40em;
   justify-content: stretch;
   justify-items: center;
   align-items: center;
-  border: white solid 2px;
-  padding: 1em;
+  border: solid purple 1em;
+  border-radius: 5%;
+  padding: 2em;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .taskPopup {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr) 4em;
   height: 40em;
   width: 100%;
-  border: none;
+  box-shadow: none;
+}
+
+#closePopupBtn {
+  justify-self: right;
+  background-color: red;
+  width: 2em;
+  height: 2em;
+}
+
+.tButtonsPopup {
+  background-color: whitesmoke;
+  column-gap: 1em;
+  box-shadow: none;
+}
+
+#deleteBtnPopup {
+  background-color: red;
 }
