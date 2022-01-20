@@ -1,5 +1,4 @@
 import { taskManager } from './taskManager';
-import { createButton } from './createButton';
 
 const taskMethods = {
   get open() {

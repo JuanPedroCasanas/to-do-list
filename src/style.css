@@ -23,24 +23,21 @@ body {
   color: rgba(0, 0, 0, 0);
   background-color: rgb(68, 39, 75);
   border-radius: 0% 10% 10% 0%;
-  transition: 0.5s;
   display: flex;
   flex-direction: column;
   padding: 1em;
   justify-content: space-around;
   width: 1%;
+  transition: 1s;
 }
 
 #navbar:hover {
-  background-color: rgb(68, 39, 75);
-  color: black;
-  border-radius: 0% 10% 10% 0%;
-  transition: 0.5s;
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
-  justify-content: space-around;
-  width: 50%;
+  animation-name: showText;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  transition: 1s;
+  width: 55%;
 }
 
 button {
@@ -145,4 +142,48 @@ button {
 
 #deleteBtnPopup {
   background-color: red;
+}
+
+.search{
+  display: flex;
+  flex-direction: row;
+}
+
+
+.searchBar.hover{
+  width: 10%;
+  pointer-events: stroke;
+  visibility: visible;
+  transition: 0.3s;
+}
+
+.searchBar{
+  position: absolute;
+  width: 1%;
+  left: 5.7em;
+  align-self: center;
+  pointer-events: visible;
+  visibility: hidden;
+  background-color: rgb(136, 95, 146);
+  border: solid 1px white;
+  color: white;
+}
+
+
+
+@keyframes showText {
+  0% {
+  }
+
+  50% {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  70% {
+    color: white;
+  }
+
+  100% {
+    color: white;
+  }
 }
