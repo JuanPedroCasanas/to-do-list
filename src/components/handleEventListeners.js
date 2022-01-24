@@ -1,5 +1,6 @@
 import { searchTasks } from './searchTasks';
 import { sortTasks } from './sortTasks';
+import { renderPopup } from './renderPopup';
 import { handleHover } from './handleHover';
 
 export function handleEventListeners() {
@@ -11,6 +12,9 @@ export function handleEventListeners() {
 
   const sortingCheckbox = document.getElementById('sortingCheckbox');
   sortingCheckbox.addEventListener('change', () => { sortTasks(sortBy) });
+
+  const addNewTaskBtn = document.getElementById('newTaskBtn');
+  addNewTaskBtn.addEventListener('click', () => { renderPopup({}, false) });
 
   handleHover();
 }

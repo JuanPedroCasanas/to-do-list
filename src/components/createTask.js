@@ -1,3 +1,4 @@
+import { formatCurrentDate } from './formatCurrentDate';
 import { taskManager } from './taskManager';
 
 const taskMethods = {
@@ -12,7 +13,7 @@ const taskMethods = {
   }
 }
 
-export function createTask(name, description, date, due) {
+export function createTask(name, description, due) {
   return Object.create(taskMethods, {
     name: {
       value: name,
@@ -23,8 +24,8 @@ export function createTask(name, description, date, due) {
       writable: true,
     },
     date: {
-      value: date,
-      writable: true,
+      value: formatCurrentDate(),
+      writable: false,
     },
     due: {
       value: due,

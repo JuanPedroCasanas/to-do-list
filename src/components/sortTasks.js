@@ -5,7 +5,7 @@ import { renderTask } from './renderTask';
 export function sortTasks(sortBy) {
   const sortParameter = sortBy.value;
   const sortingCheckbox = document.getElementById('sortingCheckbox');
-  const sortingOrder = (sortingCheckbox.checked) ? [1, 0] : [0, 1];
+  const sortingOrder = (sortingCheckbox.checked) ? [0, 1] : [1, 0];
   
   taskManager.taskArray.sort((a, b) => {
     if (a[sortParameter] < b[sortParameter]) { return sortingOrder[0]; }
