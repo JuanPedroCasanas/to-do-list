@@ -6,7 +6,6 @@ export function editTask(task, inputFields){
   taskManager.deleteTask(task);
   editedTask.name = inputFields.editName.value;
   editedTask.description = inputFields.editDesc.value;
-  editedTask.date = formatCurrentDate();
   editedTask.due = inputFields.editDue.value;
   taskManager.storeTask(editedTask);
 

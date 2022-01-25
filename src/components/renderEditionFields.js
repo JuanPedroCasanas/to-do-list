@@ -1,22 +1,20 @@
 import { createButton } from './createButton';
-import { createTask } from './createTask';
-import { taskManager } from './taskManager';
-import { editTask } from './editTask';
-import { closePopup } from './closePopup';
+import { formatCurrentDate } from './formatCurrentDate';
+import { isDueGreaterThanDate } from './isDueGreaterThanDate';
 
 export function renderEditionFields(task, newTask = false) {
   const taskEdit = document.createElement('div');
   const editName = document.createElement('input');
   const editDesc = document.createElement('input');
-  //const editDate = new Date(); //document.createElement('input');
+  const displayDate = document.createElement('input');
   const editDue = document.createElement('input');
   const submitBtn = (() => {
     if (!newTask) {
       return createButton('Submit', 'submitBtn',
-        () => { editTask(task, { editName, editDesc, editDue }) });
+        () => { isDueGreaterThanDate({ editName, editDesc, editDue }, false, task) });
     } else {
       return createButton('Submit', 'submitBtn',
-        () => { taskManager.storeTask(createTask(editName.value, editDesc.value, editDue.value)); closePopup(); });
+        () => { isDueGreaterThanDate({ editName, editDesc, editDue }, true); });
     }
   })();
   const parentElem = document.getElementsByClassName('popup')[0];
@@ -24,23 +22,23 @@ export function renderEditionFields(task, newTask = false) {
 
   editName.type = 'text';
   editDesc.type = 'text';
-  //editDate.type = 'date';
   editDue.type = 'date';
+  displayDate.type = 'date';
 
   editName.id = 'editName';
   editDesc.id = 'editDesc';
-  //editDate.id = 'editDate';
+  displayDate.id = 'displayDate';
   editDue.id = 'editDue';
 
   if (!newTask) {
     editName.value = task.name;
     editDesc.value = task.description;
-    //editDate.value = editDate.getDate()//task.date;
+    displayDate.value = task.date
     editDue.value = task.due;
   } else {
     editName.value = '';
     editDesc.value = '';
-    //editDate.value = editDate.getDate()//'';
+    displayDate.value = formatCurrentDate();
     editDue.value = '';
   }
 
@@ -48,7 +46,7 @@ export function renderEditionFields(task, newTask = false) {
 
   taskEdit.appendChild(editName);
   taskEdit.appendChild(editDesc);
-  //taskEdit.appendChild(editDate);
+  taskEdit.appendChild(displayDate);
   taskEdit.appendChild(editDue);
   taskEdit.appendChild(submitBtn);
 

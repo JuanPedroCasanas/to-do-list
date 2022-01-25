@@ -5,7 +5,7 @@ import { handleHover } from './handleHover';
 
 export function handleEventListeners() {
   const searchBar = document.getElementById('searchBar');
-  searchBar.addEventListener('change', () => { searchTasks() });
+  searchBar.addEventListener('input', () => { searchTasks() });
 
   const sortBy = document.getElementById('sortBy');
   sortBy.addEventListener('change', () => { sortTasks(sortBy) });
