@@ -9,15 +9,54 @@ html {
 }
 
 body {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1.3em 1fr;
   margin: 0%;
   width: 100%;
   height: 100%;
   padding: 0em;
   overflow-y: hidden;
   background-color: wheat;
+  display: grid;
+  grid-template-columns: none;
+  grid-template-rows: 1em 1fr;
+}
+
+.icobar{
+  column-gap: 1em;
+  justify-content: center;
+}
+
+.search{
+  width: 2em;
+  height: 2em;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('/dist/assets/search.svg');
+  background-color: white;
+  border-radius: 100vh;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  align-self: center;
+}
+
+.searchBar{
+  width: 0em;
+  visibility: hidden;
+  animation: ease-in-out;
+  transition: 0.3s;
+  position: absolute;
+  left: 20em;
+}
+
+.searchBar.active{
+  width: 12em;
+  visibility: visible;
+}
+
+.search:hover{
+  scale: 115%;
+  transition: 0.2s;
 }
 
 #navbar {
@@ -28,17 +67,19 @@ body {
   border-radius: 0% 0% 10% 10%;
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 1em;
   justify-content: space-around;
   width: 100%;
   height: 0.02em;
-  transition: 1s;
-  opacity: 0.5;
+  transition: 0.4s;
+  opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.699) 1px 1px 5px;
 }
 
 #navbar:hover{
   height: 1em;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 button {
@@ -51,10 +92,11 @@ button {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 15em;
-  grid-template-rows: repeat(5, 19.3%);
+  grid-template-rows: repeat(5, 18.5%);
   grid-gap: 0.5em;
-  background-color: wheat;
-  background-size: cover
+  background-color: rgb(209, 201, 203);
+  justify-content: center;
+  align-content: center;
 }
 
 .taskItem {
@@ -64,8 +106,8 @@ button {
   grid-row-gap: 0.1em;
   text-justify: distribute;
   background-color: whitesmoke;
-  border-radius: 5%;
-  box-shadow: black 1px 1px 5px;
+  border-radius: 3%;
+  box-shadow: rgba(0, 0, 0, 0.603) 1px 1px 3px;
 }
 
 .tButtons {
