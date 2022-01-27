@@ -20,6 +20,30 @@ body {
   grid-template-rows: 1em 1fr;
 }
 
+#navbar {
+  position: fixed;
+  top: 0px;
+  color: white;
+  background-color: rgb(68, 39, 75);
+  border-radius: 0% 0% 10% 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1em;
+  justify-content: space-around;
+  width: 100%;
+  height: 0.02em;
+  transition: 0.25s;
+  opacity: 1;
+  box-shadow: rgba(0, 0, 0, 0.699) 1px 1px 5px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#navbar:hover{
+  height: 1em;
+  opacity: 1;
+}
+
 .icobar{
   column-gap: 1em;
   justify-content: center;
@@ -46,7 +70,8 @@ body {
   animation: ease-in-out;
   transition: 0.3s;
   position: absolute;
-  left: 20em;
+  left: 21em;
+  font-family: inherit;
 }
 
 .searchBar.active{
@@ -59,27 +84,68 @@ body {
   transition: 0.2s;
 }
 
-#navbar {
-  position: fixed;
-  top: 0px;
-  color: white;
-  background-color: rgb(68, 39, 75);
-  border-radius: 0% 0% 10% 10%;
+.sort{
   display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 1em;
   justify-content: space-around;
-  width: 100%;
-  height: 0.02em;
-  transition: 0.4s;
-  opacity: 1;
-  box-shadow: rgba(0, 0, 0, 0.699) 1px 1px 5px;
+  width: 9.5em;
+  margin: 0;
 }
 
-#navbar:hover{
+.sortText{
+  width: 2em;
   height: 1em;
-  opacity: 1;
+  display: flex;
+  justify-content: center;
+}
+
+#sortBy{
+  width: 6.5em;
+  background-color: whitesmoke;
+  border: solid 1px grey;
+  border-radius: 8%;
+  display: grid;
+  font-family: inherit;
+  color: rgba(0, 0, 0, 0.473);
+}
+
+#sortingCheckbox{
+  appearance: none;
+  width: 1.4em;
+  height: 1.4em;
+  background-color: white;
+  border-radius: 30%;
+  border: solid black 1px;
+  background-image: url(/dist/assets/sortArrows.svg);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+#sortingCheckbox:checked{
+  background-color: #ff4b9f;
+}
+
+#newTaskBtn{
+  width: 2em;
+  height: 2.15em;
+  border: none;
+  border-radius: 3vh;
+  background-color: rgb(118, 180, 118);
+  background-image: url(/dist/assets/addTask.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+#newTaskBtn:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+  box-shadow: #ffffff 1px 1px 5px -1px,
+  #ffffff -1px -1px 5px -1px;
 }
 
 button {
@@ -87,12 +153,13 @@ button {
 }
 
 #content {
+  margin-top: 0.5em;
   grid-row: 2;
   padding: 1em;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 15em;
-  grid-template-rows: repeat(5, 18.5%);
+  grid-template-rows: repeat(4, 23.5%);
   grid-gap: 0.5em;
   background-color: rgb(209, 201, 203);
   justify-content: center;
@@ -108,6 +175,7 @@ button {
   background-color: whitesmoke;
   border-radius: 3%;
   box-shadow: rgba(0, 0, 0, 0.603) 1px 1px 3px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .tButtons {
@@ -121,16 +189,29 @@ button {
 }
 
 #amplifyBtn {
-  width: 2em;
-  height: 2em;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 100vh;
+  border: none;
   justify-self: left;
+  background-image: url(/dist/assets/glass.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  transition: 0.1s;
 }
 
 #deleteBtn {
   background-color: red;
-  width: 2em;
-  height: 2em;
+  width: 1.8em;
+  height: 1.8em;
   justify-self: right;
+  font-family: inherit;
+  font-weight: bold;
+  border: none;
+  border-radius: 100vh;
+  color: white;
+  transition: 0.1s;
 }
 
 .tDate, .tDue, .tName, .tDesc {
@@ -148,18 +229,19 @@ button {
 }
 
 .popup {
-  display: inherit;
+  display: grid;
   background-color: whitesmoke;
-  height: 40em;
-  width: 40em;
+  height: 30em;
+  width: 30em;
   justify-content: stretch;
   justify-items: center;
   align-items: center;
   border: solid purple 1em;
   border-radius: 5%;
-  padding: 2em;
-  display: grid;
+  padding: 1em;
   grid-template-columns: 1fr;
+  grid-template-rows: 2em 1fr;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;;
 }
 
 #displayDate{
@@ -168,19 +250,39 @@ button {
 }
 
 .taskPopup {
+  padding: 1em;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr) 4em;
-  height: 40em;
+  grid-template-rows: repeat(4, 5em) 5em;
+  height: 25em;
   width: 100%;
   box-shadow: none;
+  font-family: inherit;
 }
 
 #closePopupBtn {
+  display: grid;
   justify-self: right;
   background-color: red;
-  width: 2em;
-  height: 2em;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+  height: 1.5em;
+  width: 1.5em;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: white;
+  border: solid  rgb(165, 0, 0) 1px;
+  border-radius: 100vh;
+  box-shadow: inset black -5px -5px 20px -18px,
+  inset white 0px 5px 15px -10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#closePopupBtn:hover, #deleteBtn:hover, #amplifyBtn:hover, #deleteBtnPopup:hover, #editBtn:hover{
+  scale: 110%;
 }
 
 .tButtonsPopup {
@@ -190,10 +292,28 @@ button {
 }
 
 #deleteBtnPopup {
+  display: grid;
+  font-family: inherit;
   background-color: red;
+  border: solid grey 1px;
+  border-radius: 20vh;
+  justify-content: center;
+  align-content: center;
+  transition: 0.2s;
 }
 
 .search{
   display: flex;
   flex-direction: row;
+}
+
+#editBtn{
+  display: grid;
+  font-family: inherit;
+  background-color: whitesmoke;
+  border: solid grey 1px;
+  border-radius: 20vh;
+  justify-content: center;
+  align-content: center;
+  transition: 0.2s;
 }

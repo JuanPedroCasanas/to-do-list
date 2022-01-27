@@ -19,7 +19,7 @@ export function renderTask(task, parentElem = content, popup = false) {
   })()
   const extraBtn = (() => {
     if (!popup) {
-      return createButton('O', 'amplifyBtn', () => { task.open });
+      return createButton('', 'amplifyBtn', () => { task.open });
     } else {
       return createButton('Edit task', 'editBtn', () => { task.edit });
     }
