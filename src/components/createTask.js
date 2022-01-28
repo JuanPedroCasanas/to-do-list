@@ -18,18 +18,22 @@ export function createTask(name, description, due) {
     name: {
       value: name,
       writable: true,
+      enumerable: true,
     },
     description: {
       value: description,
       writable: true,
+      enumerable: true,
     },
     date: {
       value: formatCurrentDate(),
       writable: false,
+      enumerable: true,
     },
     due: {
       value: due,
       writable: true,
+      enumerable: true,
     },
   })
 }

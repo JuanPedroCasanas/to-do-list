@@ -4,9 +4,13 @@ import { isDueGreaterThanDate } from './isDueGreaterThanDate';
 
 export function renderEditionFields(task, newTask = false) {
   const taskEdit = document.createElement('div');
+  const name = document.createElement('p');
   const editName = document.createElement('input');
+  const desc = document.createElement('p');
   const editDesc = document.createElement('input');
+  const date = document.createElement('p');
   const displayDate = document.createElement('input');
+  const due = document.createElement('p');
   const editDue = document.createElement('input');
   const submitBtn = (() => {
     if (!newTask) {
@@ -30,6 +34,11 @@ export function renderEditionFields(task, newTask = false) {
   displayDate.id = 'displayDate';
   editDue.id = 'editDue';
 
+  name.textContent = 'Name:'
+  desc.textContent = 'Description:'
+  date.textContent = 'Date:'
+  due.textContent = 'Due:'
+
   if (!newTask) {
     editName.value = task.name;
     editDesc.value = task.description;
@@ -44,9 +53,13 @@ export function renderEditionFields(task, newTask = false) {
 
   taskEdit.classList.add('taskEdit');
 
+  taskEdit.appendChild(name);
   taskEdit.appendChild(editName);
+  taskEdit.appendChild(desc);
   taskEdit.appendChild(editDesc);
+  taskEdit.appendChild(date);
   taskEdit.appendChild(displayDate);
+  taskEdit.appendChild(due);
   taskEdit.appendChild(editDue);
   taskEdit.appendChild(submitBtn);
 

@@ -1,5 +1,4 @@
 import { taskManager } from './taskManager';
-import { formatCurrentDate } from './formatCurrentDate';
 
 export function editTask(task, inputFields){
   const editedTask = task;
