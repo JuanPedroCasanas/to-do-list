@@ -22,8 +22,8 @@ export const taskManager = {
     taskManager.saveLocalStorage();
   },
 
-  deleteTask: (task) => {
-    deleteTask(task, taskManager)
+  deleteTask: (task, edit = false) => {
+    deleteTask(task, taskManager, edit)
     taskManager.saveLocalStorage();
   },
 
